@@ -22,3 +22,4 @@ pandas
 langchain_chroma
 langchain_experimental
 tabulate
+langchain-google-genai

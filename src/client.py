@@ -5,7 +5,8 @@ import requests
 st.header("Bank Product Recommendation System")
 
 # Fetch customer IDs from the FastAPI endpoint
-response = requests.get("http://127.0.0.1:8000/customers")
+# response = requests.get("http://127.0.0.1:8000/customers")
+response = requests.get("https://ayush-003-bankllm.hf.space/customers")
 if response.status_code == 200:
     customer_ids = response.json().get("customer_ids", [])
 else:
@@ -20,7 +21,8 @@ if customer_ids:
     # Button to get recommendation
     if st.button("Get Recommendation"):
         recommendation_response = requests.post(
-            f"http://127.0.0.1:8000/recommendation?customer_id={selected_customer_id}"
+            # f"http://127.0.0.1:8000/recommendation?customer_id={selected_customer_id}"
+            f"https://ayush-003-bankllm.hf.space/recommendation?customer_id={selected_customer_id}"
         )
         if recommendation_response.status_code == 200:
             response_json = recommendation_response.json()
