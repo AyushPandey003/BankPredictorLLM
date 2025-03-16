@@ -2,7 +2,8 @@ import streamlit as st
 import requests
 
 # UI elements
-st.header("Bank Product Recommendation System")
+# st.header("Bank Product Recommendation System")
+st.header("Bank BABA")
 
 # Fetch customer IDs from the FastAPI endpoint
 # response = requests.get("http://127.0.0.1:8000/customers")
