@@ -48,6 +48,10 @@ from PIL import Image
 # pytesseract.pytesseract.tesseract_cmd = r"D:\tesseract-ocr\tesseract.exe"
 
 # Configure Tesseract path if needed (Uncomment if running locally)
+POPPLER_PATH = "/usr/bin"
+
+# Convert PDF to images
+
 
 st.header("Bank BABA")
 
@@ -96,7 +100,7 @@ elif user_type == "No":
         st.info("Processing uploaded file...")
         if uploaded_file.type == "application/pdf":
             # Convert PDF to images
-            images = convert_from_bytes(uploaded_file.read())
+            images = convert_from_bytes(uploaded_file.read(), poppler_path=POPPLER_PATH)
             extracted_text = " ".join(pytesseract.image_to_string(img) for img in images)
         else:
             # Process image files
