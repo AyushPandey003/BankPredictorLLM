@@ -23,3 +23,6 @@ langchain_chroma
 langchain_experimental
 tabulate
 langchain-google-genai
+pytesseract
+pdf2image
+PIL
