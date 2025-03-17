@@ -24,7 +24,5 @@ langchain_experimental
 tabulate
 langchain-google-genai
 pytesseract
-pdf2image
 pillow
-pdf-info
-scikit-learn
+pdf2image
