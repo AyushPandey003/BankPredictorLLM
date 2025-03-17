@@ -26,3 +26,5 @@ langchain-google-genai
 pytesseract
 pdf2image
 pillow
+python-poppler
+pdf-info
