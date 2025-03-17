@@ -96,7 +96,7 @@ elif user_type == "No":
         st.info("Processing uploaded file...")
         if uploaded_file.type == "application/pdf":
             # Convert PDF to images
-            images = convert_from_bytes(uploaded_file.read())
+            images = convert_from_bytes(uploaded_file.read(),poppler_path="poppler-24.08.0/Library/bin")
             extracted_text = " ".join(pytesseract.image_to_string(img) for img in images)
         else:
             # Process image files
