@@ -143,8 +143,14 @@ import io
 import pytesseract
 # from pdf2image import convert_from_bytes
 from PIL import Image
+import subprocess
 
 st.header("Bank BABA")
+try:
+    result = subprocess.run(["tesseract", "--version"], capture_output=True, text=True)
+    st.text(f"Tesseract Version: {result.stdout}")
+except FileNotFoundError:
+    st.error("Tesseract is not installed. Ensure it's available in the deployment environment.")
 
 response = requests.get("https://ayush-003-bankllm.hf.space/customers")
 # response = requests.get("http://127.0.0.1:8000/customers")
