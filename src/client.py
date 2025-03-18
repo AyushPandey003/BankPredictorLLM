@@ -144,6 +144,7 @@ import pytesseract
 # from pdf2image import convert_from_bytes
 from PIL import Image
 import subprocess
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
 st.header("Bank BABA")
 try:
