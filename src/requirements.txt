@@ -25,4 +25,5 @@ tabulate
 langchain-google-genai
 pytesseract
 pillow
+pypdfium2
 
