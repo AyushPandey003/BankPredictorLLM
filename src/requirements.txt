@@ -25,4 +25,4 @@ tabulate
 langchain-google-genai
 pytesseract
 pillow
-pdf2image
+
