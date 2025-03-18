@@ -141,26 +141,10 @@ import requests
 import pypdfium2
 import io
 import pytesseract
-# from pdf2image import convert_from_bytes
-from PIL import Image
-import subprocess
-pytesseract.pytesseract.tesseract_cmd = None
-import shutil
-# search for tesseract binary in path
-@st.cache_resource
-def find_tesseract_binary() -> str:
-    return shutil.which("tesseract")
 
-# set tesseract binary path
-pytesseract.pytesseract.tesseract_cmd = find_tesseract_binary()
-if not pytesseract.pytesseract.tesseract_cmd:
-    st.error("Tesseract binary not found in PATH. Please install Tesseract.")
+from PIL import Image
+
 st.header("Bank BABA")
-try:
-    result = subprocess.run(["tesseract", "--version"], capture_output=True, text=True)
-    st.text(f"Tesseract Version: {result.stdout}")
-except FileNotFoundError:
-    st.error("Tesseract is not installed. Ensure it's available in the deployment environment.")
 
 response = requests.get("https://ayush-003-bankllm.hf.space/customers")
 # response = requests.get("http://127.0.0.1:8000/customers")
