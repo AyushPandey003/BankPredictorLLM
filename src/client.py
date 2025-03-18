@@ -144,8 +144,17 @@ import pytesseract
 # from pdf2image import convert_from_bytes
 from PIL import Image
 import subprocess
-pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
+pytesseract.pytesseract.tesseract_cmd = None
+import shutil
+# search for tesseract binary in path
+@st.cache_resource
+def find_tesseract_binary() -> str:
+    return shutil.which("tesseract")
 
+# set tesseract binary path
+pytesseract.pytesseract.tesseract_cmd = find_tesseract_binary()
+if not pytesseract.pytesseract.tesseract_cmd:
+    st.error("Tesseract binary not found in PATH. Please install Tesseract.")
 st.header("Bank BABA")
 try:
     result = subprocess.run(["tesseract", "--version"], capture_output=True, text=True)
