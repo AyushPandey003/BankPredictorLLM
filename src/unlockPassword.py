@@ -1,8 +1,8 @@
 from pypdf import PdfReader, PdfWriter
 
-input_pdf = r"D:\BankLLM\data\4699202402016703286648.pdf"
+input_pdf = r"D:\BankLLM\data\xxxxx.pdf"
 output_pdf = "unlocked_statement.pdf"
-password = "ayus1212"
+password = "yourpass"
 
 reader = PdfReader(input_pdf)
 reader.decrypt(password)
